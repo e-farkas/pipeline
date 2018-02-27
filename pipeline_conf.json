@@ -1,6 +1,6 @@
 {
-    "daemon_addr": "your-local-ip"
-  , "daemon_port": 24680
+    "daemon_addr": "vm133.sysnet.ucsd.edu"
+  , "daemon_port": 24000
 
   , "scheduler": "SimpleScheduler"
   , "_simp_scheduler": "SimpleScheduler"
@@ -18,11 +18,11 @@
   , "platform": "aws_lambda"
   , "default_lambda_function": "lambda_test_HWsdxL2M"
 
-  , "aws_access_key_id_file": "path/to/access_key"
-  , "aws_secret_access_key_file": "path/to/secret_key"
-  , "srvcrt_file": "path/to/server_cert.pem"
-  , "srvkey_file": "path/to/server_key.pem"
+  , "aws_access_key_id_file": "/usr/local/home/efarkas/access_key"
+  , "aws_secret_access_key_file": "/usr/local/home/efarkas/access_id"
+  , "srvcrt_file": "/usr/local/home/efarkas/pipeline/server_cert.pem"
+  , "srvkey_file": "/usr/local/home/efarkas/pipeline/server_key.pem"
 
-  , "tracker_port": 13579
+  , "tracker_port": 13533
   , "tracker_backlog": 3000
 }

@@ -70,3 +70,6 @@ Makefile.in
 archive/
 eval/
 logs/
+
+#PodLine
+pipeline_conf.json
