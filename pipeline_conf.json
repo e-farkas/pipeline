@@ -1,6 +1,6 @@
 {
     "daemon_addr": "vm133.sysnet.ucsd.edu"
-  , "daemon_port": 24000
+  , "daemon_port": 25000
 
   , "scheduler": "SimpleScheduler"
   , "_simp_scheduler": "SimpleScheduler"
