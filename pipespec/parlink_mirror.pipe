@@ -1,0 +1,54 @@
+{
+  "nodes":[
+    {
+      "name": "parlink",
+      "stage": "parallelize_link",
+      "config": {
+        "framesperchunk": "{fps}",
+        "filter": "[fps>=24]"
+      }
+    },
+    {
+      "name": "decode",
+      "stage": "decode_from_chunked_link",
+      "config": {
+      }
+    },
+    {
+      "name": "mirror",
+      "stage": "mirror",
+      "config": {
+      }
+    },
+    {
+      "name": "encode",
+      "stage": "encode_to_dash",
+      "config": {
+      }
+    }
+  ],
+
+  "streams":
+  [
+    {
+      "src": "input_0:video_link",
+      "dst": "parlink:video_link"
+    },
+    {
+      "src": "parlink:chunked_link",
+      "dst": "decode:chunked_link"
+    },
+    {
+      "src": "decode:frames",
+      "dst": "mirror:frames"
+    },
+    {
+      "src": "mirror:frames",
+      "dst": "encode:frames"
+    },
+    {
+      "src": "encode:chunks",
+      "dst": "output_0:chunks"
+    }
+  ]
+}
