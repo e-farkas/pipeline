@@ -34,8 +34,6 @@ class ConfirmEmitState(OnePassState):
 
         #for smart serialization
         lineage = self.in_events['chunks']['metadata']['lineage']
-        self.pipe['frames_per_worker'] = self.pipe.get('frames_per_worker', {})
-        self.pipe['frames_per_worker'][lineage] = self.local['output_count']
         return self.nextState(self)  # don't forget this
 
 
@@ -98,7 +96,7 @@ class RunState(CommandListState):
     nextState = GetFramerateState
     commandlist = [ (None, 'run:mkdir -p ##TMPDIR##/in_0/ ##TMPDIR##/out_0/')
                   , ('OK:RETVAL(0)', 'collect:{key} ##TMPDIR##/in_0')
-                  , ('OK:COLLECT', 'run:time ./ffmpeg -y -i `find ##TMPDIR##/in_0/ -name "*.mp4"` -f image2 -c:v png '
+                  , ('OK:COLLECT', 'run:./ffmpeg -y -i `find ##TMPDIR##/in_0/ -name "*.mp4"` -f image2 -c:v png '
                                     '-start_number 1 ##TMPDIR##/out_0/%08d.png 2>&1|grep fps|head -n1')
                     ]
 
